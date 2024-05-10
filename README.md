@@ -61,4 +61,4 @@ In `package.json`
     }
 }
 ```
-[![Video](https://github.com/microph1/nvim-pde/blob/master/.github/assets/autocompletion_example.mp4)]
+[![Video](https://www.youtube.com/watch?v=sSOs_12vz7I)]
