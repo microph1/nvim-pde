@@ -26,15 +26,21 @@ To guarantee a smooth development experience and a precise completion I start fr
 
 ## 📦 Installation
 
- - This plugin works only with [lazy.nvim](https://github.com/folke/lazy.nvim) and it relies on the fact that it can be loaded when a given file type is opened. Other package manager are not supported.
-#### This plugin works only if a `package.json` file is present and its position will mark the application's root folder. I.e.: in a monorepo setup with several nested package.json files the closer parent folder containing such file will be considered the root of the applicaiton.
-#### The plugin is activated on if an object as described below is present in the `package.json`
+> This plugin works only if a `package.json` file is present and its position will mark the application's root folder. I.e.: in a monorepo setup with several nested package.json files the closer parent folder containing such file will be considered the root of the applicaiton.
 
-> [!]
 > If you have different needs in your journey to the coding nirvana please: fork or make a PR or open in issue.
 
 
 ## Lazy
+
+>  This plugin works only with [lazy.nvim](https://github.com/folke/lazy.nvim) and it relies on the fact that it can be loaded when a given file type is opened. Other package manager are not supported.
+
+Depends on `luasocket`
+Make sure to install it with `luarocks`
+```bash
+luarocks install luasocket
+```
+
 
 ```lua
 {
@@ -49,6 +55,9 @@ To guarantee a smooth development experience and a precise completion I start fr
 ```
 
 ## ⚙ Configuration
+
+> The plugin is activated only if an object as described below is present in the `package.json`
+
 In `package.json`
 ```json
 {
