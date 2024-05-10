@@ -179,11 +179,13 @@ function Source:is_available()
   -- print('check for filetype');
   -- print(vim.bo.filetype);
   if vim.bo.filetype ~= 'html' then
-    -- this is triggered also when the extension is scss
-    -- as per config `ft = {"html", "scss", etc....}`
-    -- when a file other than html is opened chances
-    -- are that completion data needs to be updated
-    self.cacheValid = false;
+    if vim.bo.filetype == 'scss' or vim.bo.filetype == 'css' or vim.bo.filetype == 'sass' then
+      -- this is triggered also when the extension is scss
+      -- as per config `ft = {"html", "scss", etc....}`
+      -- when a file other than html is opened chances
+      -- are that completion data needs to be updated
+      self.cacheValid = false;
+    end
     return false;
   end
 
