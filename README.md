@@ -42,9 +42,6 @@ To guarantee a smooth development experience and a precise completion I start fr
     -- this are the files tipes that trigger the loading of the plugin
     -- htlm is mandatory, styles types can be omitted but are suggested
     ft = {"html", "scss"},
-    dependencies = {
-        'nvim/nvim-cmp',
-    },
     config = function(opts)
         require('pde'):setup(opts.opts);
     end
@@ -64,3 +61,4 @@ In `package.json`
     }
 }
 ```
+[!video](.github/assets/autocompletion_example.mp4)
