@@ -119,8 +119,6 @@ end
 Source = {}
 
 function Source:setup(_)
-  print('Running :setup');
-  -- print('opts here are');
   self.cacheValid = false;
   self.enabled = true;
 
@@ -164,7 +162,7 @@ function Source:setup(_)
     print('Unable to find any configuration. Ensure that package.json has field `nvim`');
   end
 
-  vim.print('options', self.options);
+  -- vim.print('options', self.options);
 
 end
 
@@ -216,20 +214,20 @@ function Source:is_available()
     inside_quotes = parent;
   end
 
-	local prev_sibling = inside_quotes:prev_named_sibling()
+	local prev_sibling = inside_quotes:prev_named_sibling();
   -- print('prev_sibling', prev_sibling);
 
 	if prev_sibling == nil then
-		return false
+		return false;
 	end
 
-	local prev_sibling_name = ts.get_node_text(prev_sibling, 0)
+	local prev_sibling_name = ts.get_node_text(prev_sibling, 0);
 
   -- print('prev_sibling_name', prev_sibling_name)
 
 	if (prev_sibling_name == "class") then
     -- print('completion is available...');
-		return true
+		return true;
 	end
 
   return false;
@@ -241,9 +239,9 @@ function Source:get_trigger_characters()
 end
 
 function Source:complete(_, callback)
-  print('options');
-  vim.print(self.options);
-  print('enabled', self.enabled);
+  -- print('options');
+  -- vim.print(self.options);
+  -- print('enabled', self.enabled);
 
   if self.options.styles then
     for _, value in pairs(self.options.styles) do
@@ -252,7 +250,7 @@ function Source:complete(_, callback)
 
         local response, error_message = http.request(value);
 
-        if error_message then
+        if error_message and error_message ~= 200 then
           print('Error:', error_message);
         end
 
@@ -264,9 +262,8 @@ function Source:complete(_, callback)
           -- when we save completion data for the first time we set `cacheValid = false`
           -- cache is invalidated only by opening a "styles" file
           self.cacheValid = true;
-        end)
+        end);
       end
-
     end
   end
 
