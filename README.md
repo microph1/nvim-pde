@@ -1,4 +1,4 @@
-# 🔧 Personal Development Environment
+# 🔧 Neovim Personal Development Environment
 
 > Maybe the most important thing in using a development environment like Neovim is that you can truly make it your own
 
